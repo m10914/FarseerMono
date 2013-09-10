@@ -1370,6 +1370,34 @@ namespace FarseerMono.Dynamics
             return affected;
         }
 
+
+
+		public Fixture RayCastOne(Vector2 point1, Vector2 point2, out float Fraction, out Vector2 Normal)
+		{
+			Fixture affected = null;
+			float frac = 0;
+			Vector2 norm = default(Vector2);
+
+			RayCast((f, p, n, fr) =>
+			{
+				if (affected == null || fr < frac)
+				{
+					affected = f;
+					frac = fr;
+					norm = n;
+				}
+				return 1;
+
+			}, point1, point2);
+
+			Fraction = frac;
+			Normal = norm;
+
+			return affected;
+		}
+
+
+
         public void AddController(Controller controller)
         {
             Debug.Assert(!ControllerList.Contains(controller), "You are adding the same controller more than once.");

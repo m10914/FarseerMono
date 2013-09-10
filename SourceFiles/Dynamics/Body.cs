@@ -90,6 +90,12 @@ namespace FarseerMono.Dynamics
         public PhysicsLogicFilter PhysicsLogicFilter;
         public ControllerFilter ControllerFilter;
 
+
+	    public World GetWorld()
+	    {
+		    return _world;
+	    }
+
         public Body(World world, Vector2? position = null, float rotation = 0, object userdata = null)
         {
             FixtureList = new List<Fixture>();
