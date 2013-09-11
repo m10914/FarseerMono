@@ -181,6 +181,7 @@
     <Compile Include="Dynamics\Contacts\Contact.cs" />
     <Compile Include="Dynamics\Contacts\ContactSolver.cs" />
     <Compile Include="Dynamics\Fixture.cs" />
+    <Compile Include="Dynamics\IRayCastVerifier.cs" />
     <Compile Include="Dynamics\Island.cs" />
     <Compile Include="Dynamics\Joints\AngleJoint.cs" />
     <Compile Include="Dynamics\Joints\DistanceJoint.cs" />

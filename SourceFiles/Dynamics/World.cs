@@ -1372,7 +1372,7 @@ namespace FarseerMono.Dynamics
 
 
 
-		public Fixture RayCastOne(Vector2 point1, Vector2 point2, out float Fraction, out Vector2 Normal)
+		public Fixture RayCastOne(Vector2 point1, Vector2 point2, out float Fraction, out Vector2 Normal, IRayCastVerifier verifier)
 		{
 			Fixture affected = null;
 			float frac = 0;
@@ -1380,6 +1380,8 @@ namespace FarseerMono.Dynamics
 
 			RayCast((f, p, n, fr) =>
 			{
+				if (!verifier.Verify(f, p, n, fr)) return -1;
+
 				if (affected == null || fr < frac)
 				{
 					affected = f;
