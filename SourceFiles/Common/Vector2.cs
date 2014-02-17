@@ -412,9 +412,17 @@ namespace FarseerMono
         {
             float factor;
             DistanceSquared(ref value, ref zeroVector, out factor);
-            factor = 1f/(float) Math.Sqrt(factor);
-            result.X = value.X*factor;
-            result.Y = value.Y*factor;
+	        if (factor == 0)
+	        {
+		        result.X = -1;
+		        result.Y = -1;
+	        }
+	        else
+	        {
+				factor = 1f / (float)Math.Sqrt(factor);
+				result.X = value.X * factor;
+				result.Y = value.Y * factor;
+	        }         
         }
 
         public static Vector2 SmoothStep(Vector2 value1, Vector2 value2, float amount)

@@ -189,6 +189,7 @@ namespace FarseerMono.Common
             Rot qr;
             qr.s = q.c * r.s - q.s * r.c;
             qr.c = q.c * r.c + q.s * r.s;
+
             return qr;
         }
 
@@ -199,19 +200,22 @@ namespace FarseerMono.Common
             Transform C = new Transform();
             C.q = MulT(A.q, B.q);
             C.p = MulT(A.q, B.p - A.p);
+
             return C;
         }
 
         /// Rotate a vector
         public static Vector2 Mul(Rot q, Vector2 v)
         {
-            return new Vector2(q.c * v.X - q.s * v.Y, q.s * v.X + q.c * v.Y);
+            Vector2 vec = new Vector2(q.c * v.X - q.s * v.Y, q.s * v.X + q.c * v.Y);
+	        return vec;
         }
 
         /// Inverse rotate a vector
         public static Vector2 MulT(Rot q, Vector2 v)
         {
-            return new Vector2(q.c * v.X + q.s * v.Y, -q.s * v.X + q.c * v.Y);
+           Vector2 vec = new Vector2(q.c * v.X + q.s * v.Y, -q.s * v.X + q.c * v.Y);
+	       return vec;
         }
 
         /// Get the skew vector such that dot(skew_vec, other) == cross(vec, other)
@@ -751,10 +755,10 @@ namespace FarseerMono.Common
         /// </summary>
         public float Alpha0;
 
-        /// <summary>
-        /// Center world positions
-        /// </summary>
-        public Vector2 C;
+	    /// <summary>
+	    /// Center world positions
+	    /// </summary>
+	    public Vector2 C;
 
         public Vector2 C0;
 

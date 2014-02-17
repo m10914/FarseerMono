@@ -138,8 +138,9 @@ namespace FarseerMono.Dynamics
                 _positions[i].c = c;
                 _positions[i].a = a;
                 _velocities[i].v = v;
-                _velocities[i].w = w;
+                _velocities[i].w = w;			
             }
+
 
             // Solver data
             SolverData solverData = new SolverData();
